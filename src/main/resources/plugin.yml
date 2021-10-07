@@ -1,0 +1,32 @@
+name: LeafQueue
+version: '${project.version}'
+main: io.github.dailystruggle.leafqueue.LeafQueue
+api-version: 1.17
+authors: [ leaf26 ]
+description: deny entry based on queue location.
+
+commands:
+  queue:
+    description: LeafQueue commands
+    permission: leafqueue.see
+    usage: |
+      /queue
+  queue help:
+    description: LeafQueue command help
+    permission: leafqueue.see
+    usage: |
+      /queue help
+
+permissions:
+  leafqueue.*:
+    description: Grants access to all leafqueue commands and enables the player to connect to the server even if the slot limit is reached
+    children:
+      leafqueue.bypass: true
+      leafqueue.prioritized: true
+      leafqueue.sqversion: true
+      leafqueue.sqqueue: true
+      leafqueue.sqlist: true
+      leafqueue.sqadd: true
+      leafqueue.sqremove: true
+  leafqueue.bypass:
+    description: Allows the user to get around the player count limit
